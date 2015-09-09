@@ -6,17 +6,20 @@ void setup()
 void draw()
 {
 	background(255,255,255);
-	Die dice = new Die(250, 150);
-	Die dice1 = new Die(50, 150);
-	dice.roll();
-	dice.show();//your code here
-	dice1.roll();
-	dice1.show();//your code here
-	int total = dice.r + dice1.r;
-	fill(0);
-	textSize(20);
-	text("Total: " + total, 165, 350);
-	text("Click to roll!", 250, 30);
+	for (int y = 1; y < 350; y+=150)
+	{
+		for (int x = 1; x < 350; x+=150)
+		{
+			Die dice = new Die(x, y);
+			dice.roll();
+			dice.show();
+			int total = dice.r;
+			fill(0);
+			textSize(20);
+			text("Total: " + total, 165, 295);
+			text("Click to roll!", 150, 145);
+		}
+	}
 }
 void mousePressed()
 {
