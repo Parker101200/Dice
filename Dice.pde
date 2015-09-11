@@ -6,7 +6,7 @@ void setup()
 void draw()
 {
 	background(255,255,255);
-	int total = r;
+	int total = 0;
 	for (int y = 1; y < 350; y+=150)
 	{
 		for (int x = 1; x < 350; x+=150)
@@ -14,6 +14,7 @@ void draw()
 			Die dice = new Die(x, y);
 			dice.roll();
 			dice.show();
+			total = total + dice.r;
 		}
 	}
 	fill(0);
@@ -25,7 +26,6 @@ void mousePressed()
 {
 	redraw();
 }
-int r;
 class Die //models one single dice cube
 {
 	int myX, myY;//variable declarations here
@@ -34,6 +34,7 @@ class Die //models one single dice cube
 		myX = x;
 		myY = y;//variable initializations here
 	}
+	int r;
 	void roll()
 	{
 		r = (int)(Math.random()*6)+1;//your code here
